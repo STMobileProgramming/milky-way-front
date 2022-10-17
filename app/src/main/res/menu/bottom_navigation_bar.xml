@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="홈" />
+    <item
+        android:id="@+id/navigation_calendar"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_calendar_month_24"
+        android:title="캘린더" />
+    <item
+        android:id="@+id/navigation_recommendation"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_recommend_24"
+        android:title="추천" />
+    <item
+        android:id="@+id/navigation_setting"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="설정" />
+
+</menu>
