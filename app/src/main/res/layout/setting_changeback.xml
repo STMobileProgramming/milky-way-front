@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_pink_main"
+    android:padding="15dp"
+    android:id="@+id/setting_changeback">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="배경색 변경"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textAlignment="textStart"/>
+
+    <RadioGroup
+        android:id="@+id/backRadio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="50dp">
+        <RadioButton
+            android:id="@+id/setBackGray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회색"
+            android:textColor="@color/black"
+            android:textSize="15dp"/>
+        <RadioButton
+            android:id="@+id/setBackPink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="분홍색"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"/>
+        <RadioButton
+            android:id="@+id/setBackSky"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="하늘색"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"/>
+        <RadioButton
+            android:id="@+id/setBackGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="연두색"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"/>
+    </RadioGroup>
+    <Button
+        android:id="@+id/setBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="30dp"
+        android:text="변경하기"
+        android:textColor="@color/dark_gray" />
+</LinearLayout>
