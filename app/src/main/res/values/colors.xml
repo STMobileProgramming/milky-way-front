@@ -10,5 +10,9 @@
     <color name="light_gray">#E2E2E2</color>
     <color name="dark_gray">#404040</color>
     <color name="light_pink">#FFB1BC</color>
+    <color name="light_pink_main">#FFDDDD</color>
     <color name="light_ivory">#FAF5E6</color>
+    <color name="light_sky">#9CDDFF</color>
+    <color name="light_green">#BDECB6</color>
+    <color name="red">#D1180B</color>
 </resources>

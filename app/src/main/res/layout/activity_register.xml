@@ -233,15 +233,15 @@
                 <Button
                     android:id="@+id/registerBtn"
                     android:layout_width="280dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="41dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="20dp"
                     android:backgroundTint="@color/light_pink"
                     android:text="가입하기"
-                    android:textStyle="bold"
                     android:textColor="@color/dark_gray"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </ScrollView>

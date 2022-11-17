@@ -4,14 +4,173 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingFragment"
-    android:background="@color/light_pink"
+    android:background="@color/light_pink_main"
     android:id="@+id/fragment_setting">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/changepwBtn"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:backgroundTint="@color/white"
+                android:text="비밀번호 변경"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+            <Button
+                android:id="@+id/connectBtn"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:backgroundTint="@color/white"
+                android:text="커플 연결"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+            <Button
+                android:id="@+id/setImgBtn"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:backgroundTint="@color/white"
+                android:text="프로필 사진 변경"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+            <!--            <Button
+                            android:id="@+id/changeBackBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:backgroundTint="@color/white"
+                            android:text="배경 색 변경"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />-->
+            <Button
+                android:id="@+id/logoutBtn"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:backgroundTint="@color/white"
+                android:text="로그아웃"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+            <Button
+                android:id="@+id/disconnectBtn"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:backgroundTint="@color/white"
+                android:text="커플 끊기"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/checkLogoutLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="세팅 화면" />
-
-
-
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="200dp"
+        android:visibility="invisible">
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:background="@drawable/round_background_border_darkgray"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:text="정말로 로그아웃하시겠습니까?"
+                android:textAlignment="center"
+                android:textSize="23dp"
+                android:textColor="@color/black"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal">
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:backgroundTint="@color/light_pink_main"
+                    android:textColor="@color/dark_gray"
+                    android:id="@+id/logoutYesBtn"
+                    android:text="YES"/>
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:backgroundTint="@color/light_pink_main"
+                    android:textColor="@color/dark_gray"
+                    android:id="@+id/logoutNoBtn"
+                    android:text="NO"/>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/checkDisLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_gravity="center_horizontal"
+        android:visibility="invisible">
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:background="@drawable/round_background_border_darkgray"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="커플 연결을 끊겠습니까?"
+                android:textAlignment="center"
+                android:textSize="23dp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="연결을 끊으면 자동으로 로그아웃됩니다"
+                android:textAlignment="center"
+                android:textSize="10dp"
+                android:textColor="@color/red"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal">
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:backgroundTint="@color/light_pink_main"
+                    android:textColor="@color/dark_gray"
+                    android:id="@+id/disYesBtn"
+                    android:text="YES"/>
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:backgroundTint="@color/light_pink_main"
+                    android:textColor="@color/dark_gray"
+                    android:id="@+id/disNoBtn"
+                    android:text="NO"/>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
 </FrameLayout>
