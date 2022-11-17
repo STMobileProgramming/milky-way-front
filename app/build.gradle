@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.milkyway"
-        minSdk 21
+        minSdk 24
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -39,4 +39,6 @@ dependencies {
     // 바텀 네비게이션 바
     implementation 'androidx.navigation:navigation-fragment:2.5.2'
     implementation 'androidx.navigation:navigation-ui:2.5.2'
+    // 캘린더
+    implementation 'com.github.prolificinteractive:material-calendarview:1.6.1'
 }
