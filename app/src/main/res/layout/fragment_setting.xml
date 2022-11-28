@@ -14,7 +14,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <Button
                 android:id="@+id/changepwBtn"
                 android:layout_width="match_parent"
@@ -42,15 +41,6 @@
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
                 android:textSize="15dp" />
-            <!--            <Button
-                            android:id="@+id/changeBackBtn"
-                            android:layout_width="match_parent"
-                            android:layout_height="55dp"
-                            android:backgroundTint="@color/white"
-                            android:text="배경 색 변경"
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/black"
-                            android:textSize="15dp" />-->
             <Button
                 android:id="@+id/logoutBtn"
                 android:layout_width="match_parent"
