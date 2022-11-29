@@ -1,10 +1,14 @@
 package com.example.milkyway;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +16,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
+import java.io.IOException;
+
 public class SettingFragment extends Fragment {
 
     Button changepwBtn, connectBtn, setImgBtn, logoutBtn, disconnectBtn;
-//    Button changeBackBtn;
     FrameLayout checkLogoutLayout, checkDisLayout;
     Button logoutYesBtn, logoutNoBtn, disYestBtn, disNoBtn;
 
@@ -36,17 +41,16 @@ public class SettingFragment extends Fragment {
         changepwBtn = (Button) view.findViewById(R.id.changepwBtn);             // 비밀번호 변경
         connectBtn = (Button) view.findViewById(R.id.connectBtn);               // 커플 연결
         setImgBtn = (Button) view.findViewById(R.id.setImgBtn);
-//        changeBackBtn = (Button) view.findViewById(R.id.changeBackBtn);
         logoutBtn = (Button) view.findViewById(R.id.logoutBtn);                 // 로그아웃
         disconnectBtn = (Button) view.findViewById(R.id.disconnectBtn);         // 연결 끊기
+        checkDisLayout = (FrameLayout) view.findViewById(R.id.checkDisLayout);
+        disYestBtn = (Button) view.findViewById(R.id.disYesBtn);
+        disNoBtn = (Button) view.findViewById(R.id.disNoBtn);
+        checkLogoutLayout = (FrameLayout) view.findViewById(R.id.checkLogoutLayout);
+        logoutYesBtn = (Button) view.findViewById(R.id.logoutYesBtn);
+        logoutNoBtn = (Button) view.findViewById(R.id.logoutNoBtn);
 
-/*        changeBackBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent changebackIntent = new Intent(getActivity(), settingChangeback.class);
-                startActivity(changebackIntent);
-            }
-        });*/
+
 
         changepwBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,13 +68,16 @@ public class SettingFragment extends Fragment {
             }
         });
 
-        // logoutBtn, disconnectBtn layout 수정 필요
+        setImgBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkLogoutLayout = (FrameLayout) view.findViewById(R.id.checkLogoutLayout);
-                logoutYesBtn = (Button) view.findViewById(R.id.logoutYesBtn);
-                logoutNoBtn = (Button) view.findViewById(R.id.logoutNoBtn);
                 checkLogoutLayout.setVisibility(View.VISIBLE);
                 logoutYesBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -93,9 +100,6 @@ public class SettingFragment extends Fragment {
         disconnectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkDisLayout = (FrameLayout) view.findViewById(R.id.checkDisLayout);
-                disYestBtn = (Button) view.findViewById(R.id.disYesBtn);
-                disNoBtn = (Button) view.findViewById(R.id.disNoBtn);
                 checkDisLayout.setVisibility(View.VISIBLE);
                 disYestBtn.setOnClickListener(new View.OnClickListener() {
                     @Override

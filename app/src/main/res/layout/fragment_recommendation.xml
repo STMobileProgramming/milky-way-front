@@ -8,6 +8,15 @@
     android:background="@color/light_pink_main"
     android:id="@+id/fragment_recommendation">
 
+    <TextView
+        android:id="@+id/dataload"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="데이터를 읽어오는 중입니다"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:paddingBottom="60dp">
+    </TextView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,30 +24,38 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="10dp"
+            android:textAlignment="center"
             android:text="데이트 장소 추천"
+            android:background="#F8C5C8"
             android:textColor="@color/black"
             android:textSize="25dp" />
 
         <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+            android:layout_marginBottom="60dp">
             <LinearLayout
+                android:id="@+id/reco"
+                android:paddingTop="10dp"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="125dp"
                     android:orientation="horizontal"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="20dp">
 
                     <ImageView
-                        android:id="@+id/imageView"
+                        android:id="@+id/imageView1"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
+                        android:scaleType="centerCrop"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -50,16 +67,17 @@
                         android:paddingLeft="5dp">
 
                         <TextView
+                            android:id="@+id/place1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="장소"
                             android:textColor="@color/black"
                             android:textSize="20dp" />
-
                         <TextView
+                            android:id="@+id/description1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:paddingTop = "2dp"
+                            android:paddingTop = "3dp"
                             android:text="설명"
                             android:textColor="@color/black"
                             android:textSize="13dp" />
@@ -68,16 +86,17 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="125dp"
                     android:orientation="horizontal"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="20dp">
 
                     <ImageView
                         android:id="@+id/imageView2"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
+                        android:scaleType="centerCrop"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -89,6 +108,7 @@
                         android:paddingLeft="5dp">
 
                         <TextView
+                            android:id="@+id/place2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="장소2"
@@ -96,14 +116,562 @@
                             android:textSize="20dp" />
 
                         <TextView
+                            android:id="@+id/description2"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:paddingTop = "2dp"
+                            android:paddingTop = "3dp"
                             android:text="설명2"
                             android:textColor="@color/black"
                             android:textSize="13dp" />
                     </LinearLayout>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/round_background_border_black"
+                        android:src="@android:drawable/ic_menu_search" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp">
+
+                        <TextView
+                            android:id="@+id/place3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="장소3"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/description3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop = "3dp"
+                            android:text="설명3"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/round_background_border_black"
+                        android:src="@android:drawable/ic_menu_search" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp">
+
+                        <TextView
+                            android:id="@+id/place4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="장소4"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/description4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop = "3dp"
+                            android:text="설명4"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/round_background_border_black"
+                        android:src="@android:drawable/ic_menu_search" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp">
+
+                        <TextView
+                            android:id="@+id/place5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="장소5"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/description5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop = "3dp"
+                            android:text="설명5"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/round_background_border_black"
+                        android:src="@android:drawable/ic_menu_search" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp">
+
+                        <TextView
+                            android:id="@+id/place6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="장소6"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/description6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop = "3dp"
+                            android:text="설명6"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/round_background_border_black"
+                        android:src="@android:drawable/ic_menu_search" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp">
+
+                        <TextView
+                            android:id="@+id/place7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="장소7"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/description7"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop = "3dp"
+                            android:text="설명7"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/round_background_border_black"
+                        android:src="@android:drawable/ic_menu_search" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp">
+
+                        <TextView
+                            android:id="@+id/place8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="장소8"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/description8"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop = "3dp"
+                            android:text="설명8"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/round_background_border_black"
+                        android:src="@android:drawable/ic_menu_search" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp">
+
+                        <TextView
+                            android:id="@+id/place9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="장소9"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/description9"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop = "3dp"
+                            android:text="설명9"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/round_background_border_black"
+                        android:src="@android:drawable/ic_menu_search" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp">
+
+                        <TextView
+                            android:id="@+id/place10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="장소10"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/description10"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop = "3dp"
+                            android:text="설명10"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/round_background_border_black"
+                        android:src="@android:drawable/ic_menu_search" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp">
+
+                        <TextView
+                            android:id="@+id/place11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="장소11"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/description11"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop = "3dp"
+                            android:text="설명11"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView12"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/round_background_border_black"
+                        android:src="@android:drawable/ic_menu_search" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp">
+
+                        <TextView
+                            android:id="@+id/place12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="장소12"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/description12"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop = "3dp"
+                            android:text="설명12"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView13"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/round_background_border_black"
+                        android:src="@android:drawable/ic_menu_search" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp">
+
+                        <TextView
+                            android:id="@+id/place13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="장소13"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/description13"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop = "3dp"
+                            android:text="설명13"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView14"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/round_background_border_black"
+                        android:src="@android:drawable/ic_menu_search" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp">
+
+                        <TextView
+                            android:id="@+id/place14"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="장소14"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/description14"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop = "3dp"
+                            android:text="설명14"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView15"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/round_background_border_black"
+                        android:src="@android:drawable/ic_menu_search" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp">
+
+                        <TextView
+                            android:id="@+id/place15"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="장소15"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/description15"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop = "3dp"
+                            android:text="설명15"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
 
         </ScrollView>
