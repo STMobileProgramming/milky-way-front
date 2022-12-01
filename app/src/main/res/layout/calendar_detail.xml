@@ -50,6 +50,7 @@
                     android:id="@+id/detailImg"
                     android:layout_width="300dp"
                     android:layout_height="300dp"
+                    android:scaleType="fitCenter"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_baseline_stars_24"/>
                 <LinearLayout
