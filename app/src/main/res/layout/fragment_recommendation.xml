@@ -44,6 +44,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <LinearLayout
+                    android:id="@+id/reco1"
                     android:layout_width="match_parent"
                     android:layout_height="125dp"
                     android:orientation="horizontal"
@@ -54,8 +55,8 @@
                     <ImageView
                         android:id="@+id/imageView1"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -85,6 +86,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/reco2"
                     android:layout_width="match_parent"
                     android:layout_height="125dp"
                     android:orientation="horizontal"
@@ -95,8 +97,8 @@
                     <ImageView
                         android:id="@+id/imageView2"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -127,6 +129,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/reco3"
                     android:layout_width="match_parent"
                     android:layout_height="125dp"
                     android:orientation="horizontal"
@@ -137,8 +140,8 @@
                     <ImageView
                         android:id="@+id/imageView3"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -169,6 +172,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/reco4"
                     android:layout_width="match_parent"
                     android:layout_height="125dp"
                     android:orientation="horizontal"
@@ -179,8 +183,8 @@
                     <ImageView
                         android:id="@+id/imageView4"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -211,6 +215,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/reco5"
                     android:layout_width="match_parent"
                     android:layout_height="125dp"
                     android:orientation="horizontal"
@@ -221,8 +226,8 @@
                     <ImageView
                         android:id="@+id/imageView5"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -253,6 +258,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/reco6"
                     android:layout_width="match_parent"
                     android:layout_height="125dp"
                     android:orientation="horizontal"
@@ -263,8 +269,8 @@
                     <ImageView
                         android:id="@+id/imageView6"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -295,6 +301,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/reco7"
                     android:layout_width="match_parent"
                     android:layout_height="125dp"
                     android:orientation="horizontal"
@@ -305,8 +312,8 @@
                     <ImageView
                         android:id="@+id/imageView7"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -337,6 +344,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/reco8"
                     android:layout_width="match_parent"
                     android:layout_height="125dp"
                     android:orientation="horizontal"
@@ -347,8 +355,8 @@
                     <ImageView
                         android:id="@+id/imageView8"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -379,6 +387,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/reco9"
                     android:layout_width="match_parent"
                     android:layout_height="125dp"
                     android:orientation="horizontal"
@@ -389,8 +398,8 @@
                     <ImageView
                         android:id="@+id/imageView9"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -421,6 +430,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/reco10"
                     android:layout_width="match_parent"
                     android:layout_height="125dp"
                     android:orientation="horizontal"
@@ -431,8 +441,8 @@
                     <ImageView
                         android:id="@+id/imageView10"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -463,6 +473,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/reco11"
                     android:layout_width="match_parent"
                     android:layout_height="125dp"
                     android:orientation="horizontal"
@@ -473,8 +484,8 @@
                     <ImageView
                         android:id="@+id/imageView11"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -505,6 +516,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/reco12"
                     android:layout_width="match_parent"
                     android:layout_height="125dp"
                     android:orientation="horizontal"
@@ -515,8 +527,8 @@
                     <ImageView
                         android:id="@+id/imageView12"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -547,6 +559,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/reco13"
                     android:layout_width="match_parent"
                     android:layout_height="125dp"
                     android:orientation="horizontal"
@@ -557,8 +570,8 @@
                     <ImageView
                         android:id="@+id/imageView13"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -589,6 +602,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/reco14"
                     android:layout_width="match_parent"
                     android:layout_height="125dp"
                     android:orientation="horizontal"
@@ -599,8 +613,8 @@
                     <ImageView
                         android:id="@+id/imageView14"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />
@@ -631,6 +645,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/reco15"
                     android:layout_width="match_parent"
                     android:layout_height="125dp"
                     android:orientation="horizontal"
@@ -641,8 +656,8 @@
                     <ImageView
                         android:id="@+id/imageView15"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:background="@drawable/round_background_border_black"
                         android:src="@android:drawable/ic_menu_search" />

@@ -62,6 +62,7 @@ public class HomeFragment extends Fragment{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 //        상대방 프로필 사진, 내 프로필 사진으로 변경해서 나타나도록 해야 함. 없을 경우 기본 이미지로
+//        myImg, friendImg, myBigImg, frBigImg 수정
 
         myImg = (ImageView) view.findViewById(R.id.myImg);
         friendImg = (ImageView) view.findViewById(R.id.friendImg);
