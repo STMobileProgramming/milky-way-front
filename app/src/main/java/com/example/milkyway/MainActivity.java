@@ -13,6 +13,9 @@ import android.widget.Button;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class MainActivity extends AppCompatActivity {
 
     NavigationBarView bottomNavigationView;
@@ -46,4 +49,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
