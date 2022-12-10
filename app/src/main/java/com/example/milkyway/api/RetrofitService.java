@@ -1,5 +1,7 @@
 package com.example.milkyway.api;
 
+import android.service.autofill.UserData;
+
 import com.example.milkyway.api.dto.DateInfoDto;
 import com.example.milkyway.api.dto.DefaultResponseDto;
 import com.example.milkyway.api.dto.HomeDto;
@@ -8,6 +10,7 @@ import com.example.milkyway.api.dto.TokenDto;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -59,7 +62,7 @@ public interface RetrofitService {
 
     @Multipart
     @POST("image/upload")
-    Call<String> fileUpload(@Header("Authorization") String token, @Part RequestBody image);
+    Call<String> fileUpload(@Header("Authorization") String token, @Part MultipartBody.Part image);
 
     @PUT("member/profile")
     Call<DefaultResponseDto> editProfile(@Header("Authorization") String token, @Field("profileImg") String profileImg);

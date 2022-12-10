@@ -1,11 +1,12 @@
 package com.example.milkyway;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
@@ -15,9 +16,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 
+import com.example.milkyway.api.RetrofitClient;
+import com.example.milkyway.api.Tokens;
+import com.example.milkyway.api.dto.DefaultResponseDto;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SettingFragment extends Fragment {
 
@@ -26,6 +40,10 @@ public class SettingFragment extends Fragment {
     Button logoutYesBtn, logoutNoBtn, disYestBtn, disNoBtn;
     final int GALLERY = 101;
     private final int REQUEST_CODE = 0;
+    Uri imgUri;
+    String imagePath;
+    Call<DefaultResponseDto> editProfile;
+    Call<String> fileUpload;
 
 //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
@@ -134,11 +152,61 @@ public class SettingFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == GALLERY) {
-            Uri image = data.getData();
+            imgUri = data.getData();
+            String filePath;
+            Cursor cursor = getActivity().getContentResolver().query(imgUri, null, null, null, null);
+            if(cursor == null){
+                filePath = imgUri.getPath();
+            }
+            else{
+                cursor.moveToFirst();
+                int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+                filePath = cursor.getString(idx);
+                cursor.close();
+            }
             try {
-//                선택한 이미지 저장
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getApplicationContext().getContentResolver(), image);
-            } catch (IOException e) {
+                File file = new File(filePath);
+                InputStream inputStream = null;
+                try {
+                    inputStream = getContext().getContentResolver().openInputStream(imgUri);
+                } catch(IOException e) {
+                    e.printStackTrace();
+                }
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
+                RequestBody fileBody = RequestBody.create(MediaType.parse("image"), byteArrayOutputStream.toByteArray());
+
+                MultipartBody.Part filePart = MultipartBody.Part.createFormData("image", file.getName() ,fileBody);
+//                RequestBody fileBody = RequestBody.create(MediaType.parse("file"), filePath);
+//                MultipartBody.Part filePart = MultipartBody.Part.createFormData("image", "myprofile", fileBody);
+                fileUpload = RetrofitClient.getApiService().fileUpload("Bearer " + Tokens.getAccessToken("nein"), filePart);
+                Log.e("pp", fileUpload.toString());
+                fileUpload.enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+                        Log.e("ddd", response.body());
+                        editProfile = RetrofitClient.getApiService().editProfile("Bear " + Tokens.getAccessToken("nein"), response.body());
+                        editProfile.enqueue(new Callback<DefaultResponseDto>() {
+                            @Override
+                            public void onResponse(Call<DefaultResponseDto> call, Response<DefaultResponseDto> response) {
+                                Log.e("ddd", "성공");
+                            }
+
+                            @Override
+                            public void onFailure(Call<DefaultResponseDto> call, Throwable t) {
+                                Log.e("ddd", "실패");
+
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onFailure(Call<String> call, Throwable t) {
+                        Log.e("sss", t.getMessage());
+                    }
+                });
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 

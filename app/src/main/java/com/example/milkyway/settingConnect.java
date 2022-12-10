@@ -44,6 +44,9 @@ public class settingConnect extends AppCompatActivity {
                 checkCode.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+
+
 //                        맞는 코드가 존재한다면(yourCode)
                         if(true){
                             connectFail.setVisibility(View.GONE);
