@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.example.milkyway.api.RetrofitClient;
 import com.example.milkyway.api.Tokens;
@@ -45,10 +46,13 @@ public class SettingFragment extends Fragment {
     Button logoutYesBtn, logoutNoBtn, disYestBtn, disNoBtn;
     final int GALLERY = 101;
     private final int REQUEST_CODE = 0;
+
     Uri imgUri;
     String imagePath;
     Call<DefaultResponseDto> editProfile;
     Call<StringDto> fileUpload;
+
+
 
 //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
@@ -76,7 +80,19 @@ public class SettingFragment extends Fragment {
         logoutYesBtn = (Button) view.findViewById(R.id.logoutYesBtn);
         logoutNoBtn = (Button) view.findViewById(R.id.logoutNoBtn);
 
+        setImgBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent intent = new Intent();
+//                intent.setData(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//                intent.setType("image/*");
+//                intent.setAction(Intent.ACTION_GET_CONTENT);
 
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                // 위의 Activity를 실행한 이후 이벤트를 정의
+                startActivityForResult(intent, GALLERY);
+            }
+        });
 
         changepwBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,13 +108,6 @@ public class SettingFragment extends Fragment {
             public void onClick(View view) {
                 Intent connectIntent = new Intent(getActivity(), settingConnect.class);
                 startActivity(connectIntent);
-            }
-        });
-
-        setImgBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
             }
         });
 
@@ -169,6 +178,7 @@ public class SettingFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == GALLERY) {
+
             imgUri = data.getData();
             String filePath;
             Cursor cursor = getActivity().getContentResolver().query(imgUri, null, null, null, null);
@@ -223,6 +233,13 @@ public class SettingFragment extends Fragment {
                     }
                 });
             } catch (Exception e) {
+
+            Uri image = data.getData();
+            try {
+//                선택한 이미지 저장
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getApplicationContext().getContentResolver(), image);
+            } catch (IOException e) {
+
                 e.printStackTrace();
             }
 
