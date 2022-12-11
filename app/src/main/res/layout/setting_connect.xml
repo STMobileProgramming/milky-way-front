@@ -47,6 +47,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/coupleCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -111,21 +112,11 @@
                 android:textColor="@color/red"
                 android:textSize="10dp"
                 android:visibility="gone" />
-            <Button
-                android:id="@+id/checkCode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="20dp"
-                android:backgroundTint="@color/light_pink_main"
-                android:text="코드 입력"
-                android:textColor="@color/dark_gray" />
             <LinearLayout
                 android:id="@+id/dateLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:visibility="invisible"
                 android:paddingTop="20dp">
                 <TextView
                     android:layout_width="match_parent"
@@ -153,9 +144,82 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="20dp"
                     android:backgroundTint="@color/light_pink_main"
-                    android:text="날짜 입력"
+                    android:text="연결하기"
                     android:textColor="@color/dark_gray" />
             </LinearLayout>
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="사귄 날짜를 입력해주세요"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:textColor="@color/dark_gray"-->
+<!--                android:layout_marginTop="15px"-->
+<!--                android:textSize="20dp" />-->
+<!--            <EditText-->
+<!--                android:id="@+id/firstDate"-->
+<!--                android:layout_width="280dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@color/light_gray"-->
+<!--                android:hint="YYYY-MM-DD"-->
+<!--                android:padding="10dp"-->
+<!--                android:singleLine="true"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textColorHint="@color/dark_gray" />-->
+<!--            <Button-->
+<!--                android:id="@+id/connectButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:layout_margin="20dp"-->
+<!--                android:backgroundTint="@color/light_pink_main"-->
+<!--                android:text="연결하기"-->
+<!--                android:textColor="@color/dark_gray" />-->
+<!--            <Button-->
+<!--                android:id="@+id/checkCode"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:layout_margin="20dp"-->
+<!--                android:backgroundTint="@color/light_pink_main"-->
+<!--                android:text="코드 입력"-->
+<!--                android:textColor="@color/dark_gray" />-->
+<!--            <LinearLayout-->
+<!--                android:id="@+id/dateLayout"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical"-->
+<!--                android:paddingTop="20dp">-->
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="사귄 날짜를 입력해주세요"-->
+<!--                    android:gravity="center_horizontal"-->
+<!--                    android:textColor="@color/dark_gray"-->
+<!--                    android:textSize="20dp" />-->
+<!--                <EditText-->
+<!--                    android:id="@+id/firstDate"-->
+<!--                    android:layout_width="280dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:background="@color/light_gray"-->
+<!--                    android:hint="YYYY-MM-DD"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:singleLine="true"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textColorHint="@color/dark_gray" />-->
+<!--                <Button-->
+<!--                    android:id="@+id/enterDate"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:backgroundTint="@color/light_pink_main"-->
+<!--                    android:text="날짜 입력"-->
+<!--                    android:textColor="@color/dark_gray" />-->
+<!--            </LinearLayout>-->
         </LinearLayout>
     </FrameLayout>
 

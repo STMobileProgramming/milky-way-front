@@ -126,16 +126,7 @@
                 android:layout_marginTop="40dp"
                 android:text="커플 연결을 끊겠습니까?"
                 android:textAlignment="center"
-                android:textSize="23dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="연결을 끊으면 자동으로 로그아웃됩니다"
-                android:textAlignment="center"
-                android:textSize="10dp"
-                android:textColor="@color/red"/>
+                android:textSize="23dp"></TextView>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

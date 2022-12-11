@@ -73,7 +73,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@android:color/transparent"
-                        android:text="2022년 12월 25일"
+                        android:text="0000년 00월 00일"
                         android:enabled="false"
                         android:textColor="@color/black"
                         android:textSize="18dp" />
@@ -104,18 +104,18 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="장소"
-                        android:textColor="@color/black"
                         android:textSize="20dp"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/detailPlace"
-                        android:layout_width="wrap_content"
+                        android:layout_width="400dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@android:color/transparent"
                         android:enabled="false"
-                        android:text="롯데월드"
+                        android:text=" "
                         android:textColor="@color/black"
                         android:textSize="18dp" />
                 </LinearLayout>
@@ -144,7 +144,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
-                        android:text="행복한 크리스마스"
+                        android:text=" "
                         android:background="@android:color/transparent"
                         android:textColor="@color/black"
                         android:textSize="17dp"
