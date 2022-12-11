@@ -46,6 +46,7 @@ public class HomeFragment extends Fragment{
     int year, month, dayofmon;
     Call<HomeDto> homeCall;
     Bitmap bitmap;
+    Handler handler;
 
 //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
@@ -82,9 +83,9 @@ public class HomeFragment extends Fragment{
         homeCall.enqueue(new Callback<HomeDto>() {
             @Override
             public void onResponse(Call<HomeDto> call, Response<HomeDto> response) {
-                Log.e("myProfile : ", response.body().getMyProfile());
-                Log.e("coupleProfile : ", response.body().getCoupleProfile());
-                Log.e("startDay : ", response.body().getStartDay());
+//                Log.e("myProfile : ", response.body().getMyProfile());
+//                Log.e("coupleProfile : ", response.body().getCoupleProfile());
+//                Log.e("startDay : ", response.body().getStartDay());
 
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
@@ -94,65 +95,127 @@ public class HomeFragment extends Fragment{
                         if (response.body().getMyProfile() != null) {
                             Thread uThread = new Thread() {
                                 @Override
-                                public void run(){
-                                    try{
+                                public void run() {
+                                    try {
                                         URL url = new URL(response.body().getMyProfile());
-                                        HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+                                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                                         conn.setDoInput(true);
                                         conn.connect();
                                         InputStream is = conn.getInputStream(); //inputStream 값 가져오기
                                         bitmap = BitmapFactory.decodeStream(is); // Bitmap으로 변환
-                                    } catch (IOException e){
+                                    } catch (IOException e) {
                                         e.printStackTrace();
                                     }
                                 }
                             };
                             uThread.start(); // 작업 Thread 실행
-                            try{
+                            try {
                                 uThread.join();
                                 myImg.setImageBitmap(bitmap);
                                 myBigImg.setImageBitmap(bitmap);
                                 myImg.setBackground(null);
                                 myBigImg.setBackground(null);
-                            }catch (InterruptedException e){
+                            } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
                         if (response.body().getCoupleProfile() != null) {
                             Thread uThread = new Thread() {
                                 @Override
-                                public void run(){
-                                    try{
+                                public void run() {
+                                    try {
                                         URL url = new URL(response.body().getCoupleProfile());
-                                        HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+                                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                                         conn.setDoInput(true);
                                         conn.connect();
                                         InputStream is = conn.getInputStream(); //inputStream 값 가져오기
                                         bitmap = BitmapFactory.decodeStream(is); // Bitmap으로 변환
-                                    } catch (IOException e){
+                                    } catch (IOException e) {
                                         e.printStackTrace();
                                     }
                                 }
                             };
                             uThread.start(); // 작업 Thread 실행
-                            try{
+                            try {
                                 uThread.join();
                                 friendImg.setImageBitmap(bitmap);
                                 frBigImg.setImageBitmap(bitmap);
                                 frBigImg.setBackground(null);
                                 friendImg.setBackground(null);
-                            }catch (InterruptedException e){
+                            } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
                         if (response.body().getStartDay() != null) {
-                            String startDay = response.body().getStartDay();
-                            year = Integer.parseInt(startDay.substring(0, 4));
-                            Log.e("year : ", String.valueOf(year));
-                            month = Integer.parseInt(startDay.substring(5, 7));
-                            Log.e("month : ", String.valueOf(month));
-                            dayofmon = Integer.parseInt(startDay.substring(8, 10));
-                            Log.e("dayofmon : ", String.valueOf(dayofmon));
+                            Thread uThread = new Thread() {
+                                @Override
+                                public void run() {
+                                    String startDay = response.body().getStartDay();
+                                    year = Integer.parseInt(startDay.substring(0, 4));
+                                    Log.e("year : ", String.valueOf(year));
+                                    month = Integer.parseInt(startDay.substring(5, 7));
+                                    Log.e("month : ", String.valueOf(month));
+                                    dayofmon = Integer.parseInt(startDay.substring(8, 10));
+                                    Log.e("dayofmon : ", String.valueOf(dayofmon));
+                                    month--;
+                                }
+                            };
+                            uThread.start(); // 작업 Thread 실행
+                            try{
+                                uThread.join();
+                                Calendar calToday = Calendar.getInstance();
+                                Calendar calStart = new GregorianCalendar(year, month, dayofmon);
+/*                              날짜 받아오기 -> 1일째 언제인지 데이터 필요, 받아온 데이터 month에서 1 뺴줘야 함
+                              SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                              Date dDay = new Date();
+                              try{
+                              dDay = df.parse("2022-11-14");
+                              } catch (ParseException e){
+                              e.printStackTrace();
+                              }
+                              calStart.setTime(dDay);*/
+                                long IToday = calToday.getTimeInMillis() / (24*60*60*1000);
+                                long IStart = calStart.getTimeInMillis() / (24*60*60*1000);
+                                long day = IToday - IStart + 1;
+                                String calDDay = Long.toString(day);
+                                date = (TextView) view.findViewById(R.id.date);
+                                date.setText("D+"+calDDay);
+
+                                firstDay.setText(Integer.toString(year) + "." + Integer.toString(month + 1) + "." + Integer.toString(dayofmon));
+                                SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd");
+                                Calendar firstday = new GregorianCalendar(year, month, dayofmon);
+                                Date afterdate = new Date();
+
+                                firstday.add(Calendar.DATE, 99);
+                                afterdate = firstday.getTime();
+                                oneDate.setText(df.format(afterdate));
+
+                                firstday.add(Calendar.DATE, 100);
+                                afterdate = firstday.getTime();
+                                twoDate.setText(df.format(afterdate));
+
+                                firstday.add(Calendar.DATE, 100);
+                                afterdate = firstday.getTime();
+                                threeDate.setText(df.format(afterdate));
+
+                                firstday.add(Calendar.DATE, 100);
+                                afterdate = firstday.getTime();
+                                fourDate.setText(df.format(afterdate));
+
+                                firstday.add(Calendar.DATE, 100);
+                                afterdate = firstday.getTime();
+                                fiveDate.setText(df.format(afterdate));
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+//                            String startDay = response.body().getStartDay();
+//                            year = Integer.parseInt(startDay.substring(0, 4));
+//                            Log.e("year : ", String.valueOf(year));
+//                            month = Integer.parseInt(startDay.substring(5, 7));
+//                            Log.e("month : ", String.valueOf(month));
+//                            dayofmon = Integer.parseInt(startDay.substring(8, 10));
+//                            Log.e("dayofmon : ", String.valueOf(dayofmon));
+//                            month--;
                         } else {
                             year = 2022;
                             month = 12;
@@ -168,49 +231,6 @@ public class HomeFragment extends Fragment{
             }
         });
 
-        Calendar calToday = Calendar.getInstance();
-        Calendar calStart = new GregorianCalendar(year, month, dayofmon);
-/*        날짜 받아오기 -> 1일째 언제인지 데이터 필요, 받아온 데이터 month에서 1 뺴줘야 함
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        Date dDay = new Date();
-        try{
-            dDay = df.parse("2022-11-14");
-        } catch (ParseException e){
-            e.printStackTrace();
-        }
-        calStart.setTime(dDay);*/
-        long IToday = calToday.getTimeInMillis() / (24*60*60*1000);
-        long IStart = calStart.getTimeInMillis() / (24*60*60*1000);
-        long day = IToday - IStart + 1;
-        String calDDay = Long.toString(day);
-        date = (TextView) view.findViewById(R.id.date);
-        date.setText("D+"+calDDay);
-
-        firstDay.setText(Integer.toString(year) + "." + Integer.toString(month+1) + "." + Integer.toString(dayofmon));
-        SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd");
-        Calendar firstday = new GregorianCalendar(year, month, dayofmon);
-        Date afterdate = new Date();
-
-        firstday.add(Calendar.DATE, 99);
-        afterdate = firstday.getTime();
-        oneDate.setText(df.format(afterdate));
-
-        firstday.add(Calendar.DATE, 100);
-        afterdate = firstday.getTime();
-        twoDate.setText(df.format(afterdate));
-
-        firstday.add(Calendar.DATE, 100);
-        afterdate = firstday.getTime();
-        threeDate.setText(df.format(afterdate));
-
-        firstday.add(Calendar.DATE, 100);
-        afterdate = firstday.getTime();
-        fourDate.setText(df.format(afterdate));
-
-        firstday.add(Calendar.DATE, 100);
-        afterdate = firstday.getTime();
-        fiveDate.setText(df.format(afterdate));
-
         myImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -223,15 +243,15 @@ public class HomeFragment extends Fragment{
                 frBigImg.setVisibility(View.VISIBLE);
             }
         });
-        myBigImg.setOnClickListener(new View.OnClickListener(){
+        myBigImg.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 myBigImg.setVisibility(View.INVISIBLE);
             }
         });
-        frBigImg.setOnClickListener(new View.OnClickListener(){
+        frBigImg.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 frBigImg.setVisibility(View.INVISIBLE);
             }
         });
@@ -244,9 +264,10 @@ public class HomeFragment extends Fragment{
         });
         dateLayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { dateLayout.setVisibility(View.INVISIBLE);}
+            public void onClick(View view) {
+                dateLayout.setVisibility(View.INVISIBLE);
+            }
         });
-
         return view;
 
     }

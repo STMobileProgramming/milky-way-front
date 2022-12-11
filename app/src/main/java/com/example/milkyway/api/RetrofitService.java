@@ -4,12 +4,15 @@ import com.example.milkyway.api.dto.DateInfoDto;
 import com.example.milkyway.api.dto.DefaultResponseDto;
 import com.example.milkyway.api.dto.HomeDto;
 import com.example.milkyway.api.dto.MonthImagesDto;
+import com.example.milkyway.api.dto.StringDto;
 import com.example.milkyway.api.dto.TokenDto;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -59,8 +62,15 @@ public interface RetrofitService {
 
     @Multipart
     @POST("image/upload")
-    Call<String> fileUpload(@Header("Authorization") String token, @Part RequestBody image);
+    Call<StringDto> fileUpload(@Header("Authorization") String token, @Part MultipartBody.Part image);
 
     @PUT("member/profile")
     Call<DefaultResponseDto> editProfile(@Header("Authorization") String token, @Field("profileImg") String profileImg);
+
+    @GET("code")
+    Call<String> getCode(@Header("Authorization") String token);
+
+    @DELETE("date/{date}")
+    Call<DefaultResponseDto> deleteCalendar(@Header("Authorization") String token, @Path("date") String date);
+
 }

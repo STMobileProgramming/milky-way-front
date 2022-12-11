@@ -25,7 +25,7 @@
                 android:background="@android:color/transparent">
 
                 <ImageView
-                    android:id="@+id/friendImg"
+                    android:id="@+id/myImg"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:scaleType="centerCrop"
@@ -55,7 +55,7 @@
                 </FrameLayout>
 
                 <ImageView
-                    android:id="@+id/myImg"
+                    android:id="@+id/friendImg"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:scaleType="centerCrop"
@@ -65,7 +65,7 @@
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/frBigImg"
+                android:id="@+id/myBigImg"
                 android:layout_width="300dp"
                 android:layout_height="300dp"
                 android:visibility="invisible"
@@ -74,7 +74,7 @@
                 android:src="@drawable/ic_baseline_person_24"/>
 
             <ImageView
-                android:id="@+id/myBigImg"
+                android:id="@+id/frBigImg"
                 android:layout_width="300dp"
                 android:layout_height="300dp"
                 android:visibility="invisible"
